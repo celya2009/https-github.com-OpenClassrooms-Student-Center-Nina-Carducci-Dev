@@ -126,7 +126,7 @@
           activeImage = $(this);
         }
       });
-      let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
+      let activeTag = $(".tags-bar span.active-tag").data("gallery-tag");
       let imagesCollection = [];
       if (activeTag === "all") {
         $(".item-column").each(function() {
@@ -145,7 +145,7 @@
           }
         });
       }
-      let index = 0,
+      let index = 0;
         next = null;
 
       $(imagesCollection).each(function(i) {
@@ -154,8 +154,8 @@
         }
       });
       next =
-        imagesCollection[index] ||
-        imagesCollection[imagesCollection.length - 1];
+        imagesCollection[index + 1] ||
+        imagesCollection[0];
       $(".lightboxImage").attr("src", $(next).attr("src"));
     },
     nextImage() {
@@ -165,7 +165,7 @@
           activeImage = $(this);
         }
       });
-      let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
+      let activeTag = $(".tags-bar span.active-tag").data("gallery-tag");
       let imagesCollection = [];
       if (activeTag === "all") {
         $(".item-column").each(function() {
@@ -184,7 +184,7 @@
           }
         });
       }
-      let index = 0,
+      let index = 0;
         next = null;
 
       $(imagesCollection).each(function(i) {
@@ -192,7 +192,7 @@
           index = i;
         }
       });
-      next = imagesCollection[index] || imagesCollection[0];
+      next = imagesCollection[index + 1] || imagesCollection[0];
       $(".lightboxImage").attr("src", $(next).attr("src"));
     },
     createLightBox(gallery, lightboxId, navigation) {
@@ -220,10 +220,10 @@
     },
     showItemTags(gallery, position, tags) {
       var tagItems =
-        '<li class="nav-item"><span class="nav-link active active-tag"  data-images-toggle="all">Tous</span></li>';
+        '<li class="nav-item"><span class="nav-link active active-tag"  data-gallery-tag="all">Tous</span></li>';
       $.each(tags, function(index, value) {
         tagItems += `<li class="nav-item active">
-                <span class="nav-link"  data-images-toggle="${value}">${value}</span></li>`;
+                <span class="nav-link"  data-gallery-tag="${value}">${value}</span></li>`;
       });
       var tagsRow = `<ul class="my-4 tags-bar nav nav-pills">${tagItems}</ul>`;
 
@@ -240,9 +240,10 @@
         return;
       }
       $(".active-tag").removeClass("active active-tag");
-      $(this).addClass("active-tag");
+      $(this).addClass("active active-tag");
 
-      var tag = $(this).data("images-toggle");
+      var tag = $(this).data("gallery-tag");
+
 
       $(".gallery-item").each(function() {
         $(this)
