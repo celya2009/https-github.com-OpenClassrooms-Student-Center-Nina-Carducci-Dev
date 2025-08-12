@@ -38,38 +38,46 @@
 	<link rel="stylesheet" href="./assets/style.min.css" />
 
 	<!-- JSON-LD Schema.org pour référencement local -->
-	<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Nina Carducci",
-    "image": "https://ton-site.com/assets/images_webp/nina.webp",
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Nina Carducci",
+  "image": "https://ton-site.com/assets/images_webp/nina.webp",
+  "telephone": "+33 5 56 67 78 89",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "68 avenue Alsace-Lorraine",
+    "addressLocality": "Bordeaux",
+    "postalCode": "33200",
+    "addressCountry": "FR"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "10:00",
+    "closes": "19:00"
+  },
+  "url": "http://127.0.0.1:5500/index.html",
+  "sameAs": [
+    "https://www.instagram.com/ninacarducci.photo/"
+  ],
+  "priceRange": "€€",
+  "contactPoint": {
+    "@type": "ContactPoint",
     "telephone": "+33 5 56 67 78 89",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "68 avenue Alsace-Lorraine",
-      "addressLocality": "Bordeaux",
-      "postalCode": "33200",
-      "addressCountry": "FR"
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "10:00",
-      "closes": "19:00"
-    },
-    "url": "http://127.0.0.1:5500/index.html",
-    "sameAs": [
-      "https://www.instagram.com/ninacarducci.photo/"
-    ]
+    "contactType": "customer service",
+    "areaServed": "FR"
   }
-   </script>
+}
+</script>
+
 
 	<!-- Préchargement et chargement différé du CSS principal -->
 	<link rel="preload" href="./assets/bootstrap/bootstrap.min.css" as="style"
